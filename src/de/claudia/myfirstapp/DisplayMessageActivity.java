@@ -35,8 +35,7 @@ public class DisplayMessageActivity extends Activity {
 		String searchTerm = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
 
 		// Search
-		List series = null;
-		String result = null;
+		List<?> series = null;
 		XmlToOutputConverter converter = new XmlToOutputConverter();
 
 		View layout = null;
@@ -62,7 +61,7 @@ public class DisplayMessageActivity extends Activity {
 
 	}
 
-	public View displaySeries(List series) throws InterruptedException,
+	public View displaySeries(List<?> series) throws InterruptedException,
 			ExecutionException {
 
 		LayoutInflater inflater = (LayoutInflater) this

@@ -33,6 +33,7 @@ public class Search {
 		return result;
 	}
 
+	@SuppressWarnings("unused")
 	private static String convertStreamToString(InputStream is) {
 		/*
 		 * To convert the InputStream to String we use the

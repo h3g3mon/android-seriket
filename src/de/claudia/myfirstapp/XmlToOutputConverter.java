@@ -14,12 +14,12 @@ import android.util.Xml;
 public class XmlToOutputConverter {
 	private static final String ns = null;
 
-	public List getXmlFromTask(String seriesId) throws XmlPullParserException {
+	public List<Series> getXmlFromTask(String seriesId) throws XmlPullParserException {
 		// Search
 		Search searchTvDB = new Search();
 		String result = null;
 		InputStream is = null;
-		List series = null;
+		List<Series> series = null;
 		try {
 			result = searchTvDB.searchTvDB(seriesId);
 			is = new ByteArrayInputStream(result.getBytes());
@@ -49,7 +49,7 @@ public class XmlToOutputConverter {
 
 	private List<Series> readData(XmlPullParser parser)
 			throws XmlPullParserException, IOException {
-		List entries = new ArrayList();
+		List<Series> entries = new ArrayList<Series>();
 
 		parser.require(XmlPullParser.START_TAG, ns, "Data");
 		while (parser.next() != XmlPullParser.END_TAG) {
