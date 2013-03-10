@@ -1,5 +1,6 @@
 package de.claudia.myfirstapp;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -39,8 +40,15 @@ public class DisplayMessageActivity extends Activity {
 		XmlToOutputConverter converter = new XmlToOutputConverter();
 
 		View layout = null;
-
+		
+		DataBaseHelper myDbHelper = new DataBaseHelper(this);
+		
 		try {
+		
+		myDbHelper.createDataBase();
+		myDbHelper.openDataBase();
+
+		
 
 			series = converter.getXmlFromTask(searchTerm);
 			layout = displaySeries(series);
@@ -52,6 +60,9 @@ public class DisplayMessageActivity extends Activity {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (XmlPullParserException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
